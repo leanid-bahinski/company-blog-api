@@ -4,9 +4,10 @@ using CompanyBlog.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<BlogContext>(options => options.UseSqlServer(connectionString));
+//builder.Services.AddDbContext<BlogContext>(opt => opt.UseInMemoryDatabase("CompanyBlog"));
 builder.Services.AddControllers();
-builder.Services.AddDbContext<BlogContext>(opt => opt.UseInMemoryDatabase("CompanyBlog"));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var app = builder.Build();
