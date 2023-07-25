@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using CompanyBlog.Models;
+using CompanyBlog.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

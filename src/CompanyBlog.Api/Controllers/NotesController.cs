@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CompanyBlog.Models;
+using CompanyBlog.Data;
 
 namespace CompanyBlog.Controllers
 {
