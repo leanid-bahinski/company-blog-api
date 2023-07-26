@@ -7,6 +7,7 @@ namespace CompanyBlog.Data
     {
         public BlogContext(DbContextOptions<BlogContext> options) : base(options)
         {
+
         }
 
         public DbSet<Note>? Notes { get; set; } = null;

@@ -34,6 +34,12 @@ jobs:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
 
+      - name: Run update database EF 
+        run: | 
+            dotnet tool install --global dotnet-ef
+            dotnet tool restore
+            dotnet ef database update -p src/CompanyBlog.Api/CompanyBlog.Api.csproj --connection '${{ secrets.AZUREDBCONNECTION }}'
+
   deploy:
     runs-on: windows-latest
     needs: build
